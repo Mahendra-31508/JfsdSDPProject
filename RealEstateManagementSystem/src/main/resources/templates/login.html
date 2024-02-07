@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8; /* Light Gray */
+        }
+
+        header {
+            background: linear-gradient(to right, #33DAFF, #001f40); /* Gradient from Deep to Dark Blue */
+            color: #ffffff; /* White */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-icon {
+            margin: 0 10px;
+            width: 40px; /* Adjust the size as needed */
+            height: 40px; /* Adjust the size as needed */
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            background: #808080; /* Set to grey */
+            color: #ffffff; /* White */
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #ffffff; /* White */
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 0;
+            position: relative;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #ffffff;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .login-form {
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+            background-color: #ffffff; /* White */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form h2 {
+            margin-bottom: 30px;
+            color: #004080; /* Dark Blue */
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #000000; /* Black */
+            font-weight: bold;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group img {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            width: 20px; /* Adjust the size as needed */
+            height: auto;
+        }
+
+        .form-control {
+            padding-left: 40px;
+            border: 2px solid #003366; /* Darker Blue */
+            border-radius: 4px;
+            color: #000000; /* Black */
+        }
+
+        .form-control:focus {
+            border-color: #005cbf; /* Bright Blue on focus */
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        .btn-primary {
+            background-color: #33DAFF; /* Dark Blue */
+            border-color: #004080; /* Dark Blue */
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #001f40; /* Darker Blue on hover */
+            border-color: #001f40; /* Darker Blue on hover */
+        }
+
+        footer {
+            background: linear-gradient(to right, #004080, #001f40); /* Gradient from Deep to Dark Blue */
+            color: #ffffff; /* White */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-icons">
+            <div class="header-icon">
+                
+            </div>
+            <h1>Real Estate Management</h1>
+            <div class="header-icon">
+                <img src="hotel_image.png" alt="Hotel Icon">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="about">About</a>
+        <a href="login" style="border-bottom: 2px solid #ffffff;">Login</a>
+        <a href="register">Register</a>
+    </nav>
+
+    <section class="card-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/login" method="post" th:object="${loginEntity}">
+                <div class="left-aligned" align="left">
+                    <div class="input-group" color="green">
+                        <label for="username" class="sr-only">E-Mail</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your email" th:field="*{username}" required="required">
+                    </div>
+                    <div class="input-group" color="green">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password" th:field="*{password}" required="required">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 Real Estate. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS and dependencies (optional, depending on your needs) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-U7mss7aV/Gp3BHf6HEbZ6iAa09y4JhFNH4nRHbHp5JtuZxVnL4s7S88E9fLoqq6J" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
